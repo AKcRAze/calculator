@@ -1,5 +1,5 @@
 class operations:
-
+    
     def add(self, num1, num2):
         
         return num1 + num2
@@ -29,4 +29,19 @@ class operations:
     def power(self, number , power):
 
         return number ** power
-    
+
+
+a = "adere"
+print(a)
+
+a = a[0:len(a)-1]
+print(a)
+
+a = a[0:len(a)-1]
+print(a)
+a = a[0:len(a)-1]
+print(a)
+a = a[0:len(a)-1]
+
+
+print(a)
