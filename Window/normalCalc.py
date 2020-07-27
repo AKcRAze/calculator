@@ -11,9 +11,8 @@ class normal(QtWidgets.QWidget):
 
     def initUI(self):
 
-        self.display = QtWidgets.QLabel("ds f ")
-        ef __init__(self):
-        super().int
+        self.display = QtWidgets.QLabel("life is Dumb")     
+        
 
         button0 = QtWidgets.QPushButton("0")
         button0.clicked.connect(self.clicked_0)
@@ -43,8 +42,7 @@ class normal(QtWidgets.QWidget):
         
         button6 = QtWidgets.QPushButton("6")
         button6.clicked.connect(self.clicked_6)
-        button6.setShortcut("6")ef __init__(self):
-        super().int
+        button6.setShortcut("6")
 
 
         button7 = QtWidgets.QPushButton("7")
@@ -85,8 +83,14 @@ class normal(QtWidgets.QWidget):
         button_decimal.setShortcut(".")
         
         button_square = QtWidgets.QPushButton("x^2")
+        button_square.clicked.connect(self.clicked_square)
+
         button_sqrt = QtWidgets.QPushButton("sqrt")
+        button_sqrt.clicked.connect(self.clicked_sqrt) 
+        
         button_power = QtWidgets.QPushButton("power")
+        button_power.clicked.connect(self.clicked_power)
+        
         button_answer = QtWidgets.QPushButton("=")
         button_answer.setShortcut("Enter")
 
@@ -136,30 +140,37 @@ class normal(QtWidgets.QWidget):
 
     
     def clicked_2(self):
+       
         self.num2 += "2"
         self.display_text()
     
     def clicked_3(self):
+       
         self.num2 += "3"
         self.display_text()
     
     def clicked_4(self):
+       
         self.num2 += "4"
         self.display_text()
 
     def clicked_5(self):
+       
         self.num2 += "5"
         self.display_text()
     
     def clicked_6(self):
+       
         self.num2 += "6"
         self.display_text()
     
     def clicked_7(self):
+       
         self.num2 += "7"
         self.display_text()
     
     def clicked_8(self):
+       
         self.num2 += "8"
         self.display_text()
     
@@ -168,37 +179,69 @@ class normal(QtWidgets.QWidget):
         self.display_text()
     
     def clicked_decimal(self):
+       
         self.num2 += "."
         self.display_text()
 
     def clicked_delete(self):
+       
         self.num2 = self.num2[0:len(self.num2)-1]
         self.display_text()
         
 
     def clicked_divide(self):
+        
         self.dump()
         self.operator = "/"
         self.clear_display()
     
     def clicked_product(self):
+        
         self.dump()
         self.operator = "*"
         self.clear_display()
 
     def clicked_plus(self):
+        
         self.dump()
         self.operator = "+"
         self.clear_display()
         
     def clicked_sub(self):
+        
         self.dump()
         self.operator = "-"
         self.clear_display()
 
+    def clicked_power(self):
+        
+        self.dump()
+        self.operator = "power"
+        self.clear_display()
+        self.display.setText("power")     
 
+    def clicked_sqrt(self):
+        
+        if self.num2 == "":   
+            self.display.setText("Please Enter a value")
+        else:        
+            buff = float(self.num2)
+            answer = operations.squareRoot(self,buff)
+            self.num2 = f"{answer}"
+            self.display_text()
+
+    def clicked_square(self):
+        
+        if self.num2 == "":   
+            self.display.setText("Please Enter a value")
+        else:        
+            buff = float(self.num2)
+            answer = operations.square(self,buff)
+            self.num2 = f"{answer}"
+            self.display_text()
 
     def clicked_answer(self):
+
         try:  
             a  = int(self.num1)
             b  = int(self.num2)
@@ -216,22 +259,26 @@ class normal(QtWidgets.QWidget):
 
         elif self.operator == "/":
             answer = operations.divide(self,a,b)
+
+        elif self.operator == "power":
+            answer = operations.power(self,a,b)    
         
         self.num2 = f"{answer}"
         self.display_text()
 
     def dump(self):
+
         self.num1  = self.num2
         self.num2 = ""
 
     def display_text(self):
+
         self.display.setText(self.num2)
 
     def clear_display(self):
+
         self.display.setText("")
         
-
-
 if __name__ == "__main__":
     import sys
     app  = QtWidgets.QApplication(sys.argv)
