@@ -30,18 +30,3 @@ class operations:
 
         return number ** power
 
-
-a = "adere"
-print(a)
-
-a = a[0:len(a)-1]
-print(a)
-
-a = a[0:len(a)-1]
-print(a)
-a = a[0:len(a)-1]
-print(a)
-a = a[0:len(a)-1]
-
-
-print(a)

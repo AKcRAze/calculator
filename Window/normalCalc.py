@@ -1,3 +1,7 @@
+''' this a simple calculator  '''
+
+
+
 from PyQt5 import QtWidgets , QtGui ,QtCore
 
 from operations.functions import operations
@@ -13,7 +17,6 @@ class normal(QtWidgets.QWidget):
 
         self.display = QtWidgets.QLabel("life is Dumb")     
         
-
         button0 = QtWidgets.QPushButton("0")
         button0.clicked.connect(self.clicked_0)
         button0.setShortcut("0")
@@ -127,6 +130,17 @@ class normal(QtWidgets.QWidget):
         self.num1  = "" 
         self.num2  = ""
         self.power  = ""
+
+        style = ''' 
+        QPushButton
+        {
+            border: solid;
+            border-color:teal;
+            border-width:2px;    
+        }
+           
+         '''
+        self.setStyleSheet(style)
 
     def clicked_0(self):
         
