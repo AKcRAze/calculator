@@ -15,8 +15,8 @@ class normal(QtWidgets.QWidget):
 
     def initUI(self):
 
-        self.display = QtWidgets.QLabel("life is Dumb")     
-        
+        self.display = QtWidgets.QLabel("")     
+
         button0 = QtWidgets.QPushButton("0")
         button0.clicked.connect(self.clicked_0)
         button0.setShortcut("0")
